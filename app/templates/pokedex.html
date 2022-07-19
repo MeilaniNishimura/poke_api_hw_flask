@@ -1,0 +1,16 @@
+{% extends './includes/layout.html' %}
+
+{% block content %}
+<h1>{{current_user.username}}'s Pokedex</h1>
+{% for p in pokemons %}
+        <div class="card mb-2">
+            <div class="card-body">
+                <p>{{ p.name }}</p>
+                <p>{{ p.description }}</p>
+                <p>{{ p.type }}</p>
+                <p>{{ p.date_created.strftime("%B %d, %Y %I:%M %p")}}</p>
+                
+        </div>
+    </div>
+    {% endfor %}
+{% endblock content %}

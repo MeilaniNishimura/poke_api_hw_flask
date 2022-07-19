@@ -1,0 +1,53 @@
+{% extends './includes/layout.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Register</h1>
+    <form action="http://127.0.0.1:5000/register" method="POST" class="form-inline">
+        <div class="form-group mb-2 w-75 pr-3">
+            <label for="emailInput" class="sr-only">Enter email</label>
+            <input type="text" class="form-control w-100" name="emailInput" id="emailInput" placeholder="Enter email">
+        </div>
+        <div class="form-group mb-2 w-75 pr-3">
+            <label for="usernameInput" class="sr-only">Enter username</label>
+            <input type="text" class="form-control w-100" name="usernameInput" id="usernmaeInput"
+                placeholder="Enter username">
+        </div>
+        <div class="form-group mb-2 w-75 pr-3">
+            <label for="first_nameInput" class="sr-only">Enter first name</label>
+            <input type="text" class="form-control w-100" name="first_nameInput" id="first_nameInput"
+                placeholder="Enter first name">
+        </div>
+        <div class="form-group mb-2 w-75 pr-3">
+            <label for="last_nameInput" class="sr-only">Enter last name</label>
+            <input type="text" class="form-control w-100" name="last_nameInput" id="last_nameInput"
+                placeholder="Enter last name">
+        </div>
+        <div class="form-group mb-2 w-75 pr-3">
+            <label for="passwordInput" class="sr-only">Enter password</label>
+            <input type="text" class="form-control w-100" name="passwordInput" id="passwordInput"
+                placeholder="Enter password">
+        </div>
+        <div class="form-group mb-2 w-75 pr-3">
+            <label for="inputPasswordConfirm" class="sr-only">Confirm Password</label>
+            <input type="password" class="form-control w-100" name="inputPasswordConfirm" id="inputPasswordConfirm"
+                placeholder="Confirm password">
+        </div>
+        <button type="submit" class="btn btn-primary mb-2 w-25">Register</button>
+    </form>
+
+    {% for u in user %}
+    <div class="card mb-2">
+        <div class="card-body">
+            <p>{{ u.email }}</p>
+            <p>{{ u.username }}</p>
+            <p>{{ u.first_name }}</p>
+            <p>{{ u.last_name }}</p>
+            <p>${{ u.password }}</p>
+            <p>${{ u.inputPasswordConfirm }}</p>
+
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
